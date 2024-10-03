@@ -1,3 +1,25 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@media (max-width: 768px) {
+  aside {
+    width: 4rem;
+  }
+}
+
+.gradient-blue {
+  background-image: linear-gradient(to top, #3B82F6, #93C5FD); /* Blue gradient */
+}
+
+.gradient-red {
+  background-image: linear-gradient(to top, #EF4444, #FCA5A5); /* Red gradient */
+}
+
+.gradient-green {
+  background-image: linear-gradient(to top, #10B981, #6EE7B7); /* Green gradient */
+}
+
+.gradient-black {
+  background-image: linear-gradient(to top left, #000, #4B5563); /* Black diagonal gradient */
+}

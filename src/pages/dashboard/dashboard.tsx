@@ -1,0 +1,69 @@
+import React from "react";
+import StatsCard from "../../components/Card/StatsCard";
+import {  FaUsers, FaUserCheck, FaUsersSlash } from "react-icons/fa";
+import { ImUserMinus } from "react-icons/im";
+import DashboardLayout from "../../layouts/dashboard/DashboardLayout";
+
+function Dashboard() {
+  const stats = [
+    {
+      icon: <FaUsers />,
+      title: "Total Users",
+      value: 500,
+      percentageChange: "+5%",
+      backgroundColor: "gradient-blue",
+      extraClass: "gradient-blue",
+      description: "than last month"
+    },
+
+    {
+      icon: <FaUserCheck />,
+      title: "Active Users",
+      value: 465,
+      percentageChange: "+25%",
+      backgroundColor: "gradient-green",
+      extraClass: "gradient-green",
+      description: "than last month"
+    },
+    {
+      icon: <ImUserMinus />,
+      title: "Inactive Users",
+      value: 25,
+      percentageChange: "-10%",
+      backgroundColor: "gradient-black",
+      extraClass: "gradient-black",
+      description: "than last month"
+    },
+    {
+      icon: <FaUsersSlash />,
+      title: "Suspended Users",
+      value: 10,
+      percentageChange: "-5%",
+      backgroundColor: "gradient-red",
+      extraClass: "gradient-red",
+      description: "than last month"
+    }
+  ];
+  return (
+    <DashboardLayout>
+      <div className="w-full h-full">
+        <div className="flex flex-wrap gap-6">
+          {stats.map((stat, index) => (
+            <StatsCard
+              key={index}
+              icon={stat.icon}
+              title={stat.title}
+              value={stat.value}
+              percentageChange={stat.percentageChange}
+              backgroundColor={stat.backgroundColor}
+              extraClass={stat.extraClass}
+              description={stat.description}
+            />
+          ))}
+        </div>
+      </div>
+    </DashboardLayout>
+  );
+}
+
+export default Dashboard;
