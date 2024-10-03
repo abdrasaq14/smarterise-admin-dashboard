@@ -9,17 +9,31 @@
 }
 
 .gradient-blue {
-  background-image: linear-gradient(to top, #3B82F6, #93C5FD); /* Blue gradient */
+  background-image: linear-gradient(to top, #1554b9, #3B82F6); /* Blue gradient */
 }
 
 .gradient-red {
-  background-image: linear-gradient(to top, #EF4444, #FCA5A5); /* Red gradient */
+  background-image: linear-gradient(to top, #ce0b5f, #EF4444); /* Red gradient */
 }
 
 .gradient-green {
-  background-image: linear-gradient(to top, #10B981, #6EE7B7); /* Green gradient */
+  background-image: linear-gradient(to top, #008a5c, #10B981); /* Green gradient */
 }
 
 .gradient-black {
   background-image: linear-gradient(to top left, #000, #4B5563); /* Black diagonal gradient */
+}
+
+/* BarChart.css */
+.chart-container {
+  position: relative; /* Allow absolute positioning of child elements */
+  width: 100%;       /* Full width */
+  height: 100%;      /* Full height */
+  padding: 0;        /* Remove padding */
+  margin: 0;         /* Remove margin */
+}
+
+.chart {
+  width: 100% !important; /* Force chart to take full width */
+  height: 100% !important; /* Force chart to take full height */
 }

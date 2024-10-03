@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import { FaBars, FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import {FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { smarteriseLogo } from "../../assets/images";
 import clsx from "clsx";
 
@@ -32,8 +32,8 @@ const Sidebar: React.FC<SidebarProps> = ({ routes }) => {
         {/* Logo */}
         <div
           className={clsx("flex items-center mb-8 transition-opacity", {
-            "opacity-0": collapsed,
-            "opacity-100": !collapsed
+            "w-10": collapsed,
+            "w-full": !collapsed
           })}
         >
           <div className="bg-white p-2 rounded-md">

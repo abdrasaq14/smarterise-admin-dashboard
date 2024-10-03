@@ -1,4 +1,5 @@
 import React from "react";
+import GradientLine from "../GradientLine";
 
 interface StatsCardProps {
   icon: React.ReactNode;
@@ -30,7 +31,7 @@ const StatsCard: React.FC<StatsCardProps> = ({
         <span className="text-sm font-thin">{title}</span>
         <h2 className="text-2xl font-semibold">{value}</h2>
       </div>
-      <div className="h-[1px] my-[1rem] bg-gradient-to-r from-transparent via-gray-400 to-transparent"></div>
+      <GradientLine/>
 
       <div className="flex gap-2 items-center text-black-1">
         <span className={`text-green-500 text-sm font-medium`}>

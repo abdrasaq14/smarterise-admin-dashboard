@@ -3,7 +3,9 @@ import StatsCard from "../../components/Card/StatsCard";
 import {  FaUsers, FaUserCheck, FaUsersSlash } from "react-icons/fa";
 import { ImUserMinus } from "react-icons/im";
 import DashboardLayout from "../../layouts/dashboard/DashboardLayout";
-
+import BarChart from "../../components/Charts/BarChart";
+import LineChart from "../../components/Charts/LineChart";
+import ChartCard from "../../components/Card/ChartCard";
 function Dashboard() {
   const stats = [
     {
@@ -44,6 +46,22 @@ function Dashboard() {
       description: "than last month"
     }
   ];
+  const charts = [
+    {
+      title: "Sales",
+      subTitle: "Total Sales",
+      chart: <BarChart />,
+      time: "Last 7 days",
+      chartBackgroundColor: "gradient-blue"
+    },
+    {
+      title: "Revenue",
+      subTitle: "Total Revenue",
+      chart: <LineChart />,
+      time: "Last 7 days",
+      chartBackgroundColor: "gradient-green"
+    }
+  ];
   return (
     <DashboardLayout>
       <div className="w-full h-full">
@@ -60,6 +78,19 @@ function Dashboard() {
               description={stat.description}
             />
           ))}
+        </div>
+        <div className="mt-14 flex flex-wrap gap-6">
+          {charts.map((chart, index) => (
+            <ChartCard
+              key={index}
+              chart={chart.chart}
+              title={chart.title}
+              subTitle={chart.subTitle}
+              time={chart.time}
+              chartBackgroundColor={chart.chartBackgroundColor}
+              extraClass={chart.chartBackgroundColor}
+            />
+))}
         </div>
       </div>
     </DashboardLayout>

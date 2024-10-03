@@ -4,9 +4,9 @@ module.exports = {
   theme: {
     extend: {
       backgroundImage: {
-        "gradient-blue": "linear-gradient(to top, #3B82F6, #93C5FD)",
-        "gradient-red": "linear-gradient(to top, #EF4444, #FCA5A5)",
-        "gradient-green": "linear-gradient(to top, #10B981, #6EE7B7)",
+        "gradient-blue": "linear-gradient(to bottom, #3B82F6, #1554b9)",
+        "gradient-red": "linear-gradient(to bottom, #ef447a, #ce0b5f)",
+        "gradient-green": "linear-gradient(to bottom, #10B981, #008a5c)",
         "gradient-black": "linear-gradient(to top left, #000, #4B5563)"
       },
       colors: {
