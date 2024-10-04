@@ -11,9 +11,9 @@ interface ChartCardProps {
 }
 function ChartCard({ chart, title, subTitle, time, chartBackgroundColor, extraClass }: ChartCardProps) {
   return (
-    <div className="relative p-4 bg-white rounded-lg shadow-md h-[20rem] w-[19rem]">
+    <div className="relative p-4 bg-white rounded-lg shadow-md h-auto">
       <div
-        className={`p-2 absolute w-[90%] h-[60%] -translate-x-1/2  top-[-25px] left-1/2  bg-${chartBackgroundColor} rounded-xl ${extraClass}`}
+        className={`p-2 absolute w-[90%] h-[60%] -translate-x-1/2 top-[-25px] left-1/2 bg-${chartBackgroundColor} rounded-xl ${extraClass}`}
       >
         {chart}
       </div>

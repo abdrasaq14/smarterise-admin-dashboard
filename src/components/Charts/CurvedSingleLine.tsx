@@ -6,7 +6,6 @@ import {
   LinearScale,
   PointElement,
   LineElement,
-  Title,
   Tooltip,
   Legend
 } from "chart.js";
@@ -17,7 +16,6 @@ ChartJS.register(
   LinearScale,
   PointElement,
   LineElement,
-  Title,
   Tooltip,
   Legend
 );
@@ -29,7 +27,7 @@ const CurvedSingleLineChart = () => {
       {
         label: "Sales",
         data: [50, 150, 300, 100, 250, 400, 200, 350, 450],
-        borderColor: "#3B82F6", // Blue color for the line
+        borderColor: "#ffffff", // Blue color for the line
         backgroundColor: "rgba(59, 130, 246, 0.1)", // Light blue area
         tension: 0.4, // Curved line
         fill: true,
@@ -41,34 +39,50 @@ const CurvedSingleLineChart = () => {
 
   const options = {
     responsive: true,
+    maintainAspectRatio: false,
     plugins: {
       legend: {
-        display: true,
-        position: "top" as const,
-        labels: {
-          usePointStyle: true,
-          pointStyle: "line" // Use a line instead of circles in the legend
-        }
-      },
-      tooltip: {
-        mode: "nearest" as const,
-        intersect: false
+        display: false
+        //   position: "top" as const,
+        //   labels: {
+        //     usePointStyle: true,
+        //     pointStyle: "line" // Use a line instead of circles in the legend
+        //   }
+        // },
+        // tooltip: {
+        //   mode: "nearest" as const,
+        //   intersect: false
       }
     },
     scales: {
       y: {
         beginAtZero: true,
         ticks: {
-          stepSize: 100,
-          max: 500 // Ensures the max is set to 500 or adjust based on your dataset
+          color: "white", // Y-axis label color
+          font: {
+            size: 10, // Font size for Y-axis labels
+            family: "Arial", // Font family for Y-axis labels
+            weight: "400" // Font weight for Y-axis labels
+          },
+          stepSize: 100, // Set the step size to 100
+          max: 500, // Set the maximum value to 500
+          suggestedMax: 500 // Suggest a maximum value of 500
         },
         grid: {
           color: "rgba(200, 200, 200, 0.2)" // Light grid lines
         }
       },
       x: {
+        ticks: {
+          color: "white", // X-axis label color
+          font: {
+            size: 10, // Font size for X-axis labels
+            family: "Arial", // Font family for X-axis labels
+            weight: "400" // Font weight for X-axis labels
+          }
+        },
         grid: {
-          display: false // Hide x-axis grid lines
+          display: false // Hide grid lines on X-axis
         }
       }
     },
