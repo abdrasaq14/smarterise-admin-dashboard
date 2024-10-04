@@ -6,6 +6,9 @@ import DashboardLayout from "../../layouts/dashboard/DashboardLayout";
 import BarChart from "../../components/Charts/BarChart";
 import LineChart from "../../components/Charts/LineChart";
 import ChartCard from "../../components/Card/ChartCard";
+import MultiLineChart from "../../components/Charts/MultiLineChart";
+import CurvedLineChart from "../../components/Charts/CurvedMultiLineChart";
+import CurvedSingleLineChart from "../../components/Charts/CurvedSingleLine";
 function Dashboard() {
   const stats = [
     {
@@ -48,18 +51,25 @@ function Dashboard() {
   ];
   const charts = [
     {
-      title: "Sales",
-      subTitle: "Total Sales",
+      title: "Website Views",
+      subTitle: "Average page views per day",
       chart: <BarChart />,
       time: "Last 7 days",
       chartBackgroundColor: "gradient-blue"
     },
     {
-      title: "Revenue",
-      subTitle: "Total Revenue",
+      title: "Sales",
+      subTitle: "Average sales per day",
       chart: <LineChart />,
       time: "Last 7 days",
       chartBackgroundColor: "gradient-green"
+    },
+    {
+      title: "Returns",
+      subTitle: "Average returns per day",
+      chart: <CurvedSingleLineChart />,
+      time: "Last 7 days",
+      chartBackgroundColor: "gradient-black"
     }
   ];
   return (

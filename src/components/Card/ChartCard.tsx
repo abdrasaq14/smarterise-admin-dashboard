@@ -1,5 +1,6 @@
 import React from "react";
 import GradientLine from "../GradientLine";
+import { LuClock } from "react-icons/lu";
 interface ChartCardProps {
   chart: React.ReactNode;
   title: string;
@@ -10,7 +11,7 @@ interface ChartCardProps {
 }
 function ChartCard({ chart, title, subTitle, time, chartBackgroundColor, extraClass }: ChartCardProps) {
   return (
-    <div className="relative p-4 bg-white rounded-lg shadow-md h-[20rem] w-[20rem]">
+    <div className="relative p-4 bg-white rounded-lg shadow-md h-[20rem] w-[19rem]">
       <div
         className={`p-2 absolute w-[90%] h-[60%] -translate-x-1/2  top-[-25px] left-1/2  bg-${chartBackgroundColor} rounded-xl ${extraClass}`}
       >
@@ -20,7 +21,10 @@ function ChartCard({ chart, title, subTitle, time, chartBackgroundColor, extraCl
         <span className="font-bold">{title}</span>
         <span className="font-thin">{subTitle}</span>
         <GradientLine />
-        <span className="text-sm font-thin">{time}</span>
+        <span className="text-sm font-thin flex items-center gap-1">
+          <LuClock />
+          {time}
+        </span>
       </div>
     </div>
   );

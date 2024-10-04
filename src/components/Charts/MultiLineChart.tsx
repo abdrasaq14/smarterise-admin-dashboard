@@ -1,27 +1,50 @@
 import React from "react";
-import { Bar } from "react-chartjs-2";
+import { Line } from "react-chartjs-2";
 import {
   Chart as ChartJS,
   CategoryScale,
   LinearScale,
-  BarElement,
+  LineElement,
+  PointElement,
   Tooltip,
   Legend
 } from "chart.js";
 
 // Register the chart components
-ChartJS.register(CategoryScale, LinearScale, BarElement, Tooltip, Legend);
+ChartJS.register(
+  CategoryScale,
+  LinearScale,
+  LineElement,
+  PointElement,
+  Tooltip,
+  Legend
+);
 
-const BarChart = () => {
+const MultiLineChart = () => {
   const data = {
     labels: ["M", "T", "W", "T", "F", "S", "S"],
     datasets: [
       {
-        label: "Website views",
+        label: "Weekly Sales",
         data: [50, 25, 10, 40, 30, 55, 25], // Example data points
-        backgroundColor: "rgba(255, 255, 255, 0.8)", // Bar color with opacity
-        borderRadius: 100,
-        barThickness: 6
+        backgroundColor: "rgba(255, 255, 255, 0.1)", // Background color for the area under the line
+        borderColor: "rgba(255, 255, 255, 1)", // Line color
+        borderWidth: 2, // Width of the line
+        pointBackgroundColor: "rgba(255, 255, 255, 1)", // Point color
+        pointBorderColor: "rgba(255, 255, 255, 1)", // Point border color
+        pointRadius: 4, // Radius of the points
+        fill: true // Fill the area under the line
+      },
+      {
+        label: "Weekly Returns",
+        data: [30, 10, 5, 20, 15, 25, 10], // Another example data points
+        backgroundColor: "rgba(255, 0, 0, 0.1)", // Different background color
+        borderColor: "rgba(255, 0, 0, 1)", // Line color for returns
+        borderWidth: 2, // Width of the line
+        pointBackgroundColor: "rgba(255, 0, 0, 1)", // Point color
+        pointBorderColor: "rgba(255, 0, 0, 1)", // Point border color
+        pointRadius: 4, // Radius of the points
+        fill: true // Fill the area under the line
       }
     ]
   };
@@ -62,19 +85,21 @@ const BarChart = () => {
     },
     plugins: {
       legend: {
-        display: false // Hide the legend
+        display: true, // Display the legend for multiple lines
+        labels: {
+          color: "white" // Legend label color
+        }
       }
     }
   };
 
   return (
     <div className="relative shadow-lg h-full !w-full bg-inherit !overflow-hidden">
-      {/* Use flex for alignment */}
       <div className="chart-container">
-        <Bar className="chart" data={data} options={options} />
+        <Line className="chart" data={data} options={options} />
       </div>
     </div>
   );
 };
 
-export default BarChart;
+export default MultiLineChart;
