@@ -24,7 +24,7 @@ ChartJS.register(
 
 const CurvedSingleLineChart = () => {
   const data = {
-    labels: ["Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+    labels: ["M", "T", "W", "T", "F", "S", "S"],
     datasets: [
       {
         label: "Sales",
@@ -59,7 +59,8 @@ const CurvedSingleLineChart = () => {
       y: {
         beginAtZero: true,
         ticks: {
-          stepSize: 100
+          stepSize: 100,
+          max: 500 // Ensures the max is set to 500 or adjust based on your dataset
         },
         grid: {
           color: "rgba(200, 200, 200, 0.2)" // Light grid lines
