@@ -26,7 +26,7 @@ const LineChart = () => {
     datasets: [
       {
         label: "Weekly Sales",
-        data: [50, 25, 10, 40, 30, 55, 25], // Example data points
+        data: [50, 25, 10, 40, 30, 55, 25], 
         backgroundColor: "rgba(255, 255, 255, 0.1)", // Background color for the area under the line
         borderColor: "rgba(255, 255, 255, 1)", // Line color
         borderWidth: 2, // Width of the line
@@ -68,20 +68,19 @@ const LineChart = () => {
           }
         },
         grid: {
-          display: false // Hide grid lines on X-axis
+          display: false 
         }
       }
     },
     plugins: {
       legend: {
-        display: false // Hide the legend
+        display: false 
       }
     }
   };
 
   return (
     <div className="relative shadow-lg h-full !w-full bg-inherit !overflow-hidden">
-      {/* Use flex for alignment */}
       <div className="chart-container">
         <Line className="chart" data={data} options={options} />
       </div>

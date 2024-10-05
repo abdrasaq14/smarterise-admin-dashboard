@@ -43,15 +43,7 @@ const CurvedSingleLineChart = () => {
     plugins: {
       legend: {
         display: false
-        //   position: "top" as const,
-        //   labels: {
-        //     usePointStyle: true,
-        //     pointStyle: "line" // Use a line instead of circles in the legend
-        //   }
-        // },
-        // tooltip: {
-        //   mode: "nearest" as const,
-        //   intersect: false
+        
       }
     },
     scales: {

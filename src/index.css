@@ -23,17 +23,20 @@
 .gradient-black {
   background-image: linear-gradient(to top left, #000, #4B5563); /* Black diagonal gradient */
 }
+.gradient-yellow {
+  background-image: linear-gradient(to top right, #ffea00, #c6a803); /* Black diagonal gradient */
+}
 
 /* BarChart.css */
 .chart-container {
-  position: relative; /* Allow absolute positioning of child elements */
-  width: 100%;       /* Full width */
-  height: 100%;      /* Full height */
-  padding: 0;        /* Remove padding */
-  margin: 0;         /* Remove margin */
+  position: relative; 
+  width: 100%;       
+  height: 100%;     
+  padding: 0;       
+  margin: 0;        
 }
 
 .chart {
-  width: 100% !important; /* Force chart to take full width */
-  height: 100% !important; /* Force chart to take full height */
+  width: 100% !important;
+  height: 100% !important; 
 }

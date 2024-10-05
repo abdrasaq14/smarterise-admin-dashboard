@@ -47,10 +47,9 @@ const teamData = [
 
 const TeamTable = () => {
   return (
-    <div className="p-4 bg-white rounded-lg shadow-md">
-      <h2 className="text-xl font-semibold mb-4">Team Members</h2>
+    <div className="p-4 pt-16 bg-white rounded-lg shadow-md">
       <table className="min-w-full text-left">
-        <thead>
+        <thead className=" text-black-1">
           <tr>
             <th className="pb-2 font-medium text-gray-600">NAME</th>
             <th className="pb-2 font-medium text-gray-600">PROJECT</th>

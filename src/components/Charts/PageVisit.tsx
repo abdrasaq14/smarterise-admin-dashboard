@@ -50,16 +50,36 @@ const PageVisitChart = () => {
       }
     ]
   };
+     const options = {
+       responsive: true,
+       maintainAspectRatio: false,
+       plugins: {
+         legend: {
+           display: false,
+           position: "bottom" as const
+         }
+       },
+       scales: {
+         y: {
+           beginAtZero: true,
+           ticks: {
+             font: {
+               size: 10,
+               family: "Arial",
+               weight: "400"
+             },
+             stepSize: 50, // Set the step size to 100
+             max: 500, // Set the maximum value to 500
+             suggestedMin: 0, // Suggest a minimum value of 0
+             suggestedMax: 500 // Suggest a maximum value of 500
+           }
+         }
+       }
+     };
   return (
-    <div className="relative shadow-lg h-full !w-full bg-inherit !overflow-hidden">
-      <div className="chart-container">
-        <Bar
-          data={pageVisitData}
-          options={{
-            responsive: true,
-            plugins: { legend: { display: false } }
-          }}
-        />
+    <div className="relative !w-full !h-full flex justify-center items-center p-4">
+      <div className="chart-container min-h-[200px]">
+        <Bar data={pageVisitData} options={options} />
       </div>
     </div>
   );

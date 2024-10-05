@@ -60,18 +60,18 @@ const LoginChart = () => {
             family: "Arial",
             weight: "400"
           },
-          stepSize: 50, // Set the step size to 100
-          max: 500, // Set the maximum value to 500
-          suggestedMin: 0, // Suggest a minimum value of 0
-          suggestedMax: 500 // Suggest a maximum value of 500
+          stepSize: 50,
+          max: 500, 
+          suggestedMin: 0, 
+          suggestedMax: 500 
         }
       }
     }
   };
 
   return (
-    <div className="relative bg-[red] !w-full !h-full flex justify-center items-center p-4">
-      <div className="chart-container">
+    <div className="relative !w-full !h-full flex justify-center items-center p-4">
+      <div className="chart-container min-h-[200px]">
         <Line data={loginLogoutData} options={options} />
       </div>
     </div>

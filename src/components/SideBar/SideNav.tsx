@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import {FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { Link, useLocation } from "react-router-dom";
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { smarteriseLogo } from "../../assets/images";
 import clsx from "clsx";
 
@@ -16,6 +16,7 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({ routes }) => {
   const [collapsed, setCollapsed] = useState(false);
+  const location = useLocation(); // Access the current route
 
   const toggleSidebar = () => {
     setCollapsed(!collapsed);
@@ -31,7 +32,7 @@ const Sidebar: React.FC<SidebarProps> = ({ routes }) => {
       <div>
         {/* Logo */}
         <div
-          className={clsx("flex items-center mb-8 transition-opacity", {
+          className={clsx("mb-16 flex items-center transition-opacity", {
             "w-10": collapsed,
             "w-full": !collapsed
           })}
@@ -65,19 +66,26 @@ const Sidebar: React.FC<SidebarProps> = ({ routes }) => {
 
         {/* Navigation Links */}
         <nav className="space-y-4">
-          {routes.map((route, index) => (
-            <Link
-              to={route.link}
-              key={index}
-              className={clsx(
-                "flex items-center text-gray-300 hover:text-white p-2 rounded-md transition-colors duration-200",
-                { "justify-center": collapsed }
-              )}
-            >
-              <div className="mr-3">{route.icon}</div>
-              {!collapsed && <span>{route.text}</span>}
-            </Link>
-          ))}
+          {routes.map((route, index) => {
+            const isActive = location.pathname === route.link; // Check if the current route matches
+            return (
+              <Link
+                to={route.link}
+                key={index}
+                className={clsx(
+                  "flex items-center p-2 rounded-md transition-colors duration-200",
+                  {
+                    "justify-center": collapsed,
+                    "bg-white text-black-1": isActive, // Apply active styles if current route matches
+                    "text-gray-300 hover:text-white": !isActive // Default styles for inactive routes
+                  }
+                )}
+              >
+                <div className="mr-3">{route.icon}</div>
+                {!collapsed && <span>{route.text}</span>}
+              </Link>
+            );
+          })}
         </nav>
       </div>
     </aside>

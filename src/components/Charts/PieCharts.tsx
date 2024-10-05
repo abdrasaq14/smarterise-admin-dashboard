@@ -67,7 +67,7 @@ const PieChart = () => {
   };
 
   return (
-    <div className="relative h-full bgwhite shadow-md rounded-lg p-4">
+    <div className="relative h-full bg-white shadow-md rounded-lg p-4">
       <div
         className="chart-container"
         style={{ position: "relative", width: "100%", height: "300px" }}

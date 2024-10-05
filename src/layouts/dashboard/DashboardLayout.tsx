@@ -1,10 +1,7 @@
 import SideBar from "../../components/SideBar/SideNav";
 import {
   FaTable,
-  FaBell,
   FaSignInAlt,
-  FaSignOutAlt,
-  FaFileAlt,
   FaUser,
   FaHome,
   FaFileInvoice
@@ -13,13 +10,11 @@ import NavBar from "../../components/NavBar/NavBar";
 function DashboardLayout({ children }: { children: React.ReactNode }) {
   const routes = [
     { link: "/dashboard", text: "Dashboard", icon: <FaHome /> },
-    { link: "/tables", text: "Tables", icon: <FaTable /> },
-    { link: "/billing", text: "Billing", icon: <FaFileInvoice /> },
-    { link: "/rtl", text: "RTL", icon: <FaSignOutAlt /> },
-    { link: "/notifications", text: "Notifications", icon: <FaBell /> },
-    { link: "/profile", text: "Profile", icon: <FaUser /> },
-    { link: "/sign-in", text: "Sign In", icon: <FaSignInAlt /> },
-    { link: "/sign-up", text: "Sign Up", icon: <FaFileAlt /> }
+    { link: "/users/activity", text: "User Activity", icon: <FaTable /> },
+    { link: "/team-members", text: "Team Members", icon: <FaFileInvoice /> },
+    { link: "", text: "Profile", icon: <FaUser /> },
+    { link: "/login", text: "Log out", icon: <FaSignInAlt /> },
+    
   ];
 
   return (

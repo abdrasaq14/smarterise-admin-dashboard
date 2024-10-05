@@ -8,7 +8,7 @@ import {
   PointElement,
   Tooltip,
   Legend,
-  Title // Import Title plugin
+  Title 
 } from "chart.js";
 
 // Register the chart components, including Title
@@ -19,7 +19,7 @@ ChartJS.register(
   PointElement,
   Tooltip,
   Legend,
-  Title // Register Title plugin here
+  Title 
 );
 
 const MultiLineChart = () => {
@@ -28,7 +28,7 @@ const MultiLineChart = () => {
     datasets: [
       {
         label: "Active Users",
-        data: [50, 25, 10, 40, 30, 55, 25, 76], // Example data points
+        data: [50, 25, 10, 40, 30, 55, 25, 76], 
         backgroundColor: "rgba(0, 123, 255, 0.1)", // Blue background fill color
         borderColor: "rgba(0, 123, 255, 1)", // Blue line color
         borderWidth: 2, // Line width

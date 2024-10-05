@@ -1,45 +1,41 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 const UserTable = () => {
-  // Sample data with profile image URLs
-  const tableData = [
-    {
-      name: "John Michael",
-      profileImage: "https://randomuser.me/api/portraits/men/1.jpg",
-      status: "Online",
-      lastLogin: "Sept 4, 10:24am"
-    },
-    {
-      name: "Alexa Liras",
-      profileImage: "https://randomuser.me/api/portraits/women/1.jpg",
-      status: "Offline",
-      lastLogin: "Sept 3, 2:15pm"
-    },
-    {
-      name: "Laurent Perrier",
-      profileImage: "https://randomuser.me/api/portraits/men/2.jpg",
-      status: "Online",
-      lastLogin: "Sept 2, 11:04am"
-    },
-    {
-      name: "Michael Levi",
-      profileImage: "https://randomuser.me/api/portraits/men/3.jpg",
-      status: "Online",
-      lastLogin: "Sept 1, 9:24am"
-    },
-    {
-      name: "Richard Gran",
-      profileImage: "https://randomuser.me/api/portraits/men/4.jpg",
-      status: "Offline",
-      lastLogin: "Aug 31, 6:45pm"
-    },
-    {
-      name: "Miriam Eric",
-      profileImage: "https://randomuser.me/api/portraits/women/2.jpg",
-      status: "Offline",
-      lastLogin: "Aug 30, 8:15am"
-    }
-  ];
+  const [tableData, setTableData] = useState([]);
+const { pathname } = useLocation()
+  // Fetch data from randomuser API
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await fetch(
+          `https://randomuser.me/api/?results=${
+            pathname === "/dashboard" ? 6 : 20
+          }`
+        );
+        const data = await response.json();
+        console.log("userData", data);
+        const formattedData = data.results.map((user: any) => ({
+          name: `${user.name.first} ${user.name.last}`,
+          profileImage: user.picture.medium,
+          status: Math.random() > 0.5 ? "Online" : "Offline", // Randomly set status
+          lastLogin: new Date().toLocaleString("en-US", {
+            month: "short",
+            day: "numeric",
+            hour: "numeric",
+            minute: "numeric"
+          }),
+          id: user.id.name
+        }));
+
+        setTableData(formattedData);
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      }
+    };
+
+    fetchData();
+  }, []);
 
   return (
     <div className="p-4 bg-inherit overflow-hidden mt-[40px]">
@@ -57,10 +53,10 @@ const UserTable = () => {
             </tr>
           </thead>
           <tbody className="bg-inherit divide-y divide-gray-200">
-            {tableData.map((row, index) => (
+            {tableData.map((row: any, index) => (
               <tr key={index}>
                 <td className="px-6 py-4 whitespace-nowrap">
-                  <div className="flex items-center">
+                  <Link to={`/user/${row.id}`} className="flex items-center">
                     <img
                       className="h-10 w-10 rounded-full"
                       src={row.profileImage}
@@ -75,10 +71,11 @@ const UserTable = () => {
                         @example.com
                       </div>
                     </div>
-                  </div>
+                  </Link>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
-                  <span
+                  <Link
+                    to={`/user/${row.id}`}
                     className={`px-2 inline-flex text-xs leading-5 font-semibold rounded-full ${
                       row.status === "Online"
                         ? "bg-green-100 text-green-800"
@@ -86,10 +83,10 @@ const UserTable = () => {
                     }`}
                   >
                     {row.status}
-                  </span>
+                  </Link>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                  {row.lastLogin}
+                  <Link to={`/user/${row.id}`}>{row.lastLogin}</Link>
                 </td>
               </tr>
             ))}

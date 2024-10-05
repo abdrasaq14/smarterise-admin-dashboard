@@ -69,7 +69,6 @@ const BarChart = () => {
 
   return (
     <div className="relative shadow-lg h-full !w-full bg-inherit !overflow-hidden">
-      {/* Use flex for alignment */}
       <div className="chart-container">
         <Bar className="chart" data={data} options={options} />
       </div>
