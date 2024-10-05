@@ -147,7 +147,7 @@ function Dashboard() {
               <ImNewTab />
             </Link>
           </div>
-          <div className="w-full overflow-hidden">
+          <div className="w-full overflow-x-auto">
             <UserTable />
           </div>
         </div>

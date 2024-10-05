@@ -54,8 +54,8 @@ const UserTable = () => {
   };
 
   return (
-    <div className="p-4 bg-inherit overflow-hidden mt-[40px]">
-      <div className="overflow-hidden">
+    <div className="p-4 bg-inherit overflow-x-auto mt-[40px]">
+      <div className="overflow-x-auto">
         <table className="min-w-full table-auto">
           <thead className="text-black-1">
             <tr>
@@ -110,8 +110,8 @@ const UserTable = () => {
         </table>
 
         {/* Pagination Controls */}
-        <div className="flex justify-center items-center mt-10 w-full">
-          <div className="w-[50%] mx-auto flex items-center justify-center">
+        {pathname !== "/dashboard" && <div className="flex justify-center items-center mt-10 w-full">
+          <div className="md:w-[50%] mx-auto flex items-center justify-center">
             <button
               onClick={() => handlePageChange(currentPage - 1)}
               disabled={currentPage === 1}
@@ -141,7 +141,7 @@ const UserTable = () => {
           </div>
 
          
-        </div>
+        </div>}
       </div>
     </div>
   );
