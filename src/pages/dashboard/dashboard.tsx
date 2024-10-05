@@ -105,7 +105,7 @@ function Dashboard() {
   return (
     <DashboardLayout>
       <div className="w-full h-full">
-        <div className="grid gap-6 grid-cols-[repeat(auto-fill,minmax(200px,1fr))]">
+        <div className="grid gap-6 grid-cols-[repeat(auto-fill,minmax(220px,1fr))]">
           {stats.map((stat, index) => (
             <StatsCard
               key={index}

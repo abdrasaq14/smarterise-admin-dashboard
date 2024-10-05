@@ -21,7 +21,7 @@ const StatsCard: React.FC<StatsCardProps> = ({
   description
 }) => {
   return (
-    <div className="flex min-w-[200px] flex-col relative p-4 bg-white shadow-md rounded-lg">
+    <div className="flex flex-col relative p-4 bg-white shadow-md rounded-lg">
       <div
         className={`text-2xl absolute top-[-20px] bg-${backgroundColor} text-white rounded-lg p-2 h-[55px] w-[55px] flex items-center justify-center shadow-md shadow-gray-300 ${extraClass}`}
       >
