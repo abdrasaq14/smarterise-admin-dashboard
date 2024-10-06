@@ -74,7 +74,7 @@ const PieChart = () => {
       >
         <Doughnut data={data} options={options} />
         {/* Custom center text */}
-        <div className="absolute -translate-x-[20%] -translate-y-[-5%] inset-0 flex items-center justify-center">
+        <div className="absolute -translate-x-[22%] -translate-y-[-5%] inset-0 flex items-center justify-center">
           <div className="font-bold text-3xl" style={{ textAlign: "center" }}>
             <span>5K</span>
             <div style={{ fontSize: "16px", fontWeight: "400" }}>
