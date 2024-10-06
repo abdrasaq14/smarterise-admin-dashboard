@@ -14,6 +14,7 @@ function App() {
         <Route path="/users/activity" element={<UserActivity />} />
         <Route path="/team-members" element={<TeamProjects />} />
         <Route path="*" element={<Dashboard />} />
+        <Route path="/" element={<LoginPage />} />
         <Route path="/login" element={<LoginPage />} />
       </Routes>
     </div>

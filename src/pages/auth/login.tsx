@@ -29,7 +29,10 @@ function LoginPage() {
       <div className="bg-white shadow-md rounded-lg flex w-full md:w-3/4 max-w-4xl">
         {/* Left Section */}
         <div className="w-full md:w-1/2 p-8">
-          <h2 className="text-3xl font-bold text-gray-800 mb-6">Sign In</h2>
+          <h2 className="text-3xl font-bold text-gray-800 mb-1">Sign In</h2>
+          <p className="text-black-1 mb-6 text-[12px]">
+            This is a dummy account, just click on the sign in button below{" "}
+          </p>
           <form onSubmit={formik.handleSubmit}>
             <div className="mb-4">
               <label className="block text-sm font-semibold mb-2">Email</label>
@@ -75,7 +78,7 @@ function LoginPage() {
         {/* Right Section - Hidden on small devices */}
         <div className="hidden md:flex w-1/2 gradient-yellow text-white items-center justify-center rounded-r-lg p-8">
           <div className="text-center">
-            <h2 className="text-3xl font-bold mb-6">Welcome to Login</h2>
+            <h2 className="text-3xl font-bold mb-6">Welcome Admin</h2>
             <p className="mb-6">Don't have an account?</p>
             <button className="bg-white text-black-1 py-2 px-6 rounded-full hover:bg-gray-200">
               Sign Up
