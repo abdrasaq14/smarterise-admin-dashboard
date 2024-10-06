@@ -13,6 +13,7 @@ import {
   Legend
 } from "chart.js";
 import DashboardLayout from "../../layouts/dashboard/DashboardLayout";
+import ActiveSessionChart from "../../components/Charts/ActiveSession";
 
 // Register chart.js components
 ChartJS.register(
@@ -142,58 +143,58 @@ const UserDetails = () => {
   if (isLoading) return <p>Loading user data...</p>;
 
   return (
-      <DashboardLayout>
+    <DashboardLayout>
       <div className="w-full h-full">
-      <h1 className="text-3xl font-bold text-gray-800 mb-6">
-        {user.name || "John Doe"}
-      </h1>
+        <h1 className="text-3xl font-bold text-gray-800 mb-6">
+          {user.name || "John Doe"}
+        </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
-        <div className="bg-white p-4 rounded-lg shadow-md">
-          <h2 className="text-lg font-semibold mb-4">Email</h2>
-          <p>{user.email || "johndoe@gmail.com"}</p>
-        </div>
-        <div className="bg-white p-4 rounded-lg shadow-md">
-          <h2 className="text-lg font-semibold mb-4">Phone</h2>
-          <p>{user.phone || "78345500"}</p>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-10">
+          <div className="bg-white p-4 rounded-lg shadow-md">
+            <h2 className="text-lg font-semibold mb-4">Email</h2>
+            <p>{user.email || "johndoe@gmail.com"}</p>
+          </div>
+          <div className="bg-white p-4 rounded-lg shadow-md">
+            <h2 className="text-lg font-semibold mb-4">Phone</h2>
+            <p>{user.phone || "78345500"}</p>
+          </div>
         </div>
 
-      </div>
+        {/* Chart for Login/Logout Trends */}
+        <div className="bg-white p-6 rounded-lg shadow-md mb-6">
+          <h2 className="text-xl font-semibold mb-4">
+            Login and Logout Trends
+          </h2>
+          <div className="relative h-96">
+            <Line
+              data={loginLogoutData}
+              options={{ responsive: true, maintainAspectRatio: false }}
+            />
+          </div>
+        </div>
 
-      {/* Chart for Login/Logout Trends */}
-      <div className="bg-white p-6 rounded-lg shadow-md mb-6">
-        <h2 className="text-xl font-semibold mb-4">Login and Logout Trends</h2>
-        <div className="relative h-96">
-          <Line
-            data={loginLogoutData}
-            options={{ responsive: true, maintainAspectRatio: false }}
-          />
+        {/* Chart for Page Visits (Bar Chart) */}
+        <div className="grid gap-6 grid-cols-[repeat(auto-fill,minmax(450px,1fr))]">
+          <div className="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h2 className="text-xl font-semibold mb-4">Page Visits</h2>
+            <div className="relative h-96">
+              <Bar
+                data={pageVisitsData}
+                options={{ responsive: true, maintainAspectRatio: false }}
+              />
+            </div>
+          </div>
+          <div className="bg-white p-6 rounded-lg shadow-md mb-6">
+            <h2 className="text-xl font-semibold mb-4">
+              Daily Active session
+            </h2>
+            <div className="relative h-96">
+              <ActiveSessionChart />
+            </div>
+          </div>
         </div>
       </div>
-
-      {/* Chart for Page Visits (Bar Chart) */}
-      <div className="bg-white p-6 rounded-lg shadow-md mb-6">
-        <h2 className="text-xl font-semibold mb-4">Page Visits</h2>
-        <div className="relative h-96">
-          <Bar
-            data={pageVisitsData}
-            options={{ responsive: true, maintainAspectRatio: false }}
-          />
-        </div>
-      </div>
-
-      {/* Chart for Total Orders (Monthly) */}
-      <div className="bg-white p-6 rounded-lg shadow-md mb-6">
-        <h2 className="text-xl font-semibold mb-4">Total Orders (Monthly)</h2>
-        <div className="relative h-96">
-          <Bar
-            data={totalOrdersData}
-            options={{ responsive: true, maintainAspectRatio: false }}
-          />
-        </div>
-      </div>
-      </div>
-      </DashboardLayout>
+    </DashboardLayout>
   );
 };
 
