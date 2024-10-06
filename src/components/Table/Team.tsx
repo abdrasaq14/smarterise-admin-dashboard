@@ -4,7 +4,7 @@ import "react-circular-progressbar/dist/styles.css";
 
 const teamData = [
   {
-    name: "Dean Hogan",
+    name: "Oluwaleke Ojo",
     role: "iOS developer",
     project: "ZIPCAR",
     tasks: "87/135",
@@ -12,7 +12,7 @@ const teamData = [
     color: "#6f6eff"
   },
   {
-    name: "Hilda Rice",
+    name: "Liam Hughes",
     role: "Laravel developer",
     project: "BITBANK",
     tasks: "340/420",
@@ -20,7 +20,7 @@ const teamData = [
     color: "#ff6b6b"
   },
   {
-    name: "Andrew O'Brian",
+    name: "Adeleke Seun",
     role: "React developer",
     project: "PAYERS",
     tasks: "50/82",
@@ -28,7 +28,7 @@ const teamData = [
     color: "#ffcd38"
   },
   {
-    name: "Eleanor Price",
+    name: "Alabi Fikayo",
     role: "Angular developer",
     project: "BRANDI",
     tasks: "98/260",
